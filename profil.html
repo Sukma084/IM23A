@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+    /* style taruh sini */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f0f2f5;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .profile-header {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        border: 4px solid #4a90e2;
+    }
+
+    .profile-name {
+        font-size: 24px;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    .profile-title {
+        color: #65676b;
+        margin-bottom: 20px;
+    }
+
+    .profile-bio {
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .social-link {
+        color: #4a90e2;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background-color: #e7f3ff;
+        transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+    .profile-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .content-box {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .content-title {
+        color: #1a1a1a;
+        margin-bottom: 15px;
+        font-size: 18px;
+        border-bottom: 2px solid #4a90e2;
+        padding-bottom: 10px;
+    }
+
+    .skill-list {
+        list-style: none;
+    }
+
+    .skill-item {
+        margin-bottom: 10px;
+        color: #444;
+    }
+
+    .experience-item {
+        margin-bottom: 20px;
+    }
+
+    .experience-title {
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-bottom: 5px;
+    }
+
+    .experience-company {
+        color: #4a90e2;
+        margin-bottom: 5px;
+    }
+
+    .experience-date {
+        color: #65676b;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+        }
+
+        .profile-header {
+            padding: 20px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+        }
+
+        .social-links {
+            flex-wrap: wrap;
+        }
+    }
+</style>
+
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login.html">DAFTAR AKUN</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">MENU</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="home.html">HOME</a></li>
+                <li><a class="dropdown-item" href="profil.html">PROFIL</a></li>
+                <li><a class="dropdown-item" href="galeri.html">GALERI</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">LAINNYA</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="profil.html">PROFIL</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="profile-header">
+            <img src="gallery/profil.png" alt="Foto Profil" class="profile-photo">
+            <h1 class="profile-name">sukma firda </h1>
+            <p class="profile-title">IM23A </p>
+            <p class="profile-bio">
+                Seorang pengembang web berpengalaman dengan passion dalam menciptakan solusi digital yang inovatif.
+                Spesialisasi dalam pengembangan aplikasi web modern menggunakan teknologi terkini.
+            </p>
+            <div class="social-links">
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <div class="content-box">
+                <h2 class="content-title">Keahlian</h2>
+                <ul class="skill-list">
+                    <li class="skill-item">HTML5 & CSS3</li>
+                    <li class="skill-item">JavaScript / TypeScript</li>
+                    <li class="skill-item">React.js</li>
+                    <li class="skill-item">Node.js</li>
+                    <li class="skill-item">PHP</li>
+                    <li class="skill-item">MySQL</li>
+                    <li class="skill-item">Git</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h2 class="content-title">Pengalaman</h2>
+                <div class="experience-item">
+                    <h3 class="experience-title">Web Developer</h3>
+                    <p class="experience-company">Tech Solutions Inc.</p>
+                    <p class="experience-date">2020 - Sekarang</p>
+                    <p>Memimpin tim pengembangan untuk proyek-proyek web skala besar dan mengimplementasikan best
+                        practices dalam pengembangan aplikasi.</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Web Developer</h3>
+                    <p class="experience-company">Digital Creators</p>
+                    <p class="experience-date">2018 - 2020</p>
+                    <p>Mengembangkan dan memelihara aplikasi web untuk berbagai klien menggunakan teknologi modern.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- html di taruh sini -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

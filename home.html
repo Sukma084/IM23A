@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<style>
+    /* style taruh sini */
+
+
+    .custom-paragraph-block {
+        position: relative;
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 40px auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #0d6efd;
+        transition: all 0.3s ease;
+    }
+
+    .custom-paragraph-block:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .paragraph-header {
+        border-bottom: 2px solid #e9ecef;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        position: relative;
+    }
+
+    .paragraph-header::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: #0d6efd;
+    }
+
+    .paragraph-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #495057;
+    }
+
+    .paragraph-content p:last-child {
+        margin-bottom: 0;
+    }
+
+    .paragraph-metadata {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #e9ecef;
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .metadata-item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .metadata-item i {
+        margin-right: 5px;
+    }
+
+    .paragraph-tags {
+        margin-top: 15px;
+    }
+
+    .paragraph-tags .badge {
+        margin-right: 5px;
+        padding: 8px 12px;
+        font-weight: 500;
+    }
+
+    .highlight-text {
+        background-color: #e7f5ff;
+        padding: 2px 5px;
+        border-radius: 3px;
+        color: #0d6efd;
+    }
+
+    .quote-block {
+        background-color: #f8f9fa;
+        border-left: 4px solid #6c757d;
+        padding: 15px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .custom-paragraph-block {
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        .paragraph-content {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+    }
+
+    /* Jumbotron 1 Styles */
+    .gradient-jumbotron {
+        background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        padding: 100px 0;
+    }
+
+    .gradient-jumbotron::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(45deg);
+    }
+
+    .gradient-jumbotron::after {
+        content: '';
+        position: absolute;
+        bottom: -50%;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(45deg);
+    }
+
+    .gradient-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .floating-element {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .btn-glow {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-glow::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.2);
+        transform: rotate(45deg);
+        transition: all 0.3s ease;
+    }
+
+    .btn-glow:hover::after {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+
+    /* Jumbotron 2 Styles */
+    .image-jumbotron {
+        background-color: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0;
+    }
+
+    .shape-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+    .shape-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 50px;
+    }
+
+    .shape-divider .shape-fill {
+        fill: #FFFFFF;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        background: #e9ecef;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    /* Style untuk footer */
+    .footer {
+        background-color: #333;
+        color: white;
+        padding-top: 50px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footer h5 {
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #17a2b8;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+        background-color: #17a2b8;
+        color: #fff;
+    }
+
+    .footer-bottom {
+        background-color: #222;
+        padding: 15px 0;
+        margin-top: 40px;
+    }
+
+    .contact-info i {
+        margin-right: 10px;
+        color: #17a2b8;
+    }
+
+    /* Footer Styles */
+    .footer {
+        background-color: #333;
+        color: white;
+        padding-top: 50px;
+    }
+
+    .footer h5 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #0d6efd;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: #fff;
+        color: #333;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    .footer-bottom {
+        background-color: #222;
+        padding: 15px 0;
+        margin-top: 40px;
+    }
+</style>
+
+<body>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login.html">DAFTAR AKUN</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                aria-expanded="false">MENU</a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="home.html">HOME</a></li>
+                <li><a class="dropdown-item" href="profil.html">PROFIL</a></li>
+                <li><a class="dropdown-item" href="galeri.html">GALERI</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">LAINNYA</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="profil.html">PROFIL</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="gallery/benteng-tolukko-4v5o-dom.webp" class="d-block w-100" alt="..." style="height: 800px;">
+            </div>
+            <div class=" carousel-item">
+                <img src="gallery/download (2).jpeg" class="d-block w-100" alt="..." style="height: 800px;">
+            </div>
+            <div class="carousel-item">
+                <img src="gallery/download (1).jpeg" class="d-block w-100" alt="..." style="height: 800px;">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <body class="carousel">
+        <div class="carousel-inner">
+            <div class="custom-paragraph-block">
+                <!-- Header Section -->
+                <div class="paragraph-header">
+                    <h2 class="h3 mb-2">WISATA SEJARAH BENTENG TOLUKKO IN NATE</h2>
+                    <div class="text-muted">Visitors in Tolukko Castle in Ternate City, North Maluku, Sunday
+                        (10/2/2023). The bulls built by Francisco Serrao, a Portuguese panglima in 1540 used as a
+                        defence for the face of the Spanish nation is one of the historical and educational tourist
+                        attractions in Ternate visited local tourists and foreign tourists. ANTARA PHOTO/Andri
+                        Saputra/nz.</div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="paragraph-content">
+                    <h3>SEJARAH BENTENG TOLUKKO</h3>
+                    <p>Seperti kebanyakan benteng Ternate, Benteng Tolukko awalnya dibangun oleh Portugis, yang
+                        menguasai hampir seluruh perdagangan rempah-rempah di Ternate pada abad ke 16. Seorang komandan
+                        militer Kapten Portugis, Francisco Serraow, membangun benteng ini, yang awalnya bernama Santo
+                        Lucas, sebagai pusat pertahanan dan penyimpanan rempah-rempah asli Ternate yang mereka
+                        perdagangkan.
+
+                        Benteng ini terletak di lokasi yang sangat strategis karena sangat dekat dengan perairan, berada
+                        di atas bukit yang cukup tinggi sehingga memungkinkan pengawasan terhadap pergerakan yang
+                        terjadi di istana kerajaan Ternate. Namun setelah adanya perlawanan masyarakat Ternate di bawah
+                        pimpinan Sultan Baabullah, kekuasaan Portugis berakhir pada tahun 1577. Sejak saat itu, Benteng
+                        Santo Lucas dikuasai Kerajaan Ternate hingga Belanda datang, merebut benteng tersebut dan
+                        mengganti namanya menjadi Benteng Hollandia.
+
+                        Benteng ini kemudian dipugar pada tahun 1610 dan menjadi salah satu pertahanan Ternate dari
+                        Belanda. Selanjutnya berdasarkan beberapa perjanjian kerja sama yang ditandatangani antara
+                        pemerintah VOC dengan Kerajaan Ternate, pada tahun 1661, Sultan Ternate bernama Mandar Syah
+                        diperbolehkan menduduki Benteng Hollandia dengan pasukan berjumlah sekitar 160 orang. Nama
+                        Tolukko masih dikaitkan dengan benteng ini hingga saat ini dan juga mengandung cerita yang tak
+                        kalah menarik. Salah satu cerita menyebutkan bahwa nama Tolukko digunakan ketika salah satu
+                        Sultan Ternate, Kaicil Tolukko, memerintah sekitar tahun 1692.
+
+                        Sumber lain menyatakan bahwa nama Tolukko merupakan modifikasi dari nama asli benteng ini,
+                        tepatnya Benteng Santo Lucas. Dahulu kala, cerita ini mengatakan bahwa karena tidak jelas cara
+                        mengucapkan Santo Lucas, penduduk asli Ternate memanggilnya Tolukko. Memang benar masih ada
+                        ketidakpastian mengenai sejarah nama Tolukko, namun hal itu tidak lagi menjadi masalah ketika
+                        saya mengetahui betapa pentingnya peran benteng ini bagi seluruh penguasa Portugis, Belanda
+                        bahkan dari Kerajaan Ternate sendiri.[4]</p>
+
+                    <div class="quote-block">
+                        Konstruksi dan Fasilitas
+                        Dahulu benteng Tolukko dikenal dengan nama Benteng Hollandia.[2] Benteng Tolukko dibangun di
+                        atas fondasi batuan beku.[2] Benteng ini terbentuk dari tiga buah bastion, ruang bawah tanah,
+                        halaman dalam, lorong serta bangunan utama berbentuk egi empat.[2] Konstruksi bangunannya
+                        terbuat dari campuran batu kali, batu karang, pecahan batu bata yang direkat oleh campuran kapur
+                        serta pasir.[2]
+                    </div>
+
+                    <p>Unsur-unsur keislaman pada objek wisata benteng-benteng di Kota Ternate belum memenuhi
+                        prinsip-prinsip islam jika dilihat dari segi bangunan arsitektur yang perlu adanya penambahan
+                        ornament islam. Fasilitas pada objek wisata Benteng Kalamata dan Benteng Tolukko belum memadai
+                        karena masih perlu adanya perbaikan maupun penambahan fasilitas penunjang objek wisata seperti
+                        tempat duduk, lampu penerangan ,dan lain sebagainya. Salah satu contoh perlu perbaikan fasilitas
+                        penerangan di setiap lokasi wisata, mengingat dalam ayat qur’an telah diatur bahwa cahaya sangat
+                        memiliki pengaruh yang besar dalam kehidupan manusai karena menghindarkan manusia dari
+                        perbuatan-perbuatan yang dilarang seperti maksiat.[5]</p>
+                </div>
+            </div>
+            <!-- Jumbotron 1:-->
+
+            <section class="jumbotron text-center bg-light py-5">
+                <div class="container">
+                    <h1 class="display-4">Discover Historical Wonders</h1>
+                    <p class="lead">Perjalanan kembali ke masa lalu dan jelajahi tempat bersejarah paling ikonik di
+                        seluruh dunia.
+                        Bergabunglah dengan kami dalam perjalanan tak terlupakan melalui halaman sejarah
+                        .</p>
+                    <hr class="my-4">
+                    <p>Penawaran khusus untuk tur grup tersedia. Pesan tempat Anda hari ini!</p>
+                    <a class="btn btn-primary btn-lg" href="explore" role="">jelajahi sekarang</a>
+
+                </div>
+            </section><br>
+
+
+            <!-- Jumbotron 2:-->
+            <section class="jumbotron text-center bg-light py-5">
+                <div class="container">>
+                    <div class="text-center mb-5">
+                        <h2 class="display-4 fw-bold text-dark mb-3">about tolukko fort</h2>
+                    </div>
+
+                    <div class="row">
+                        <!-- card item -->
+                        <div class="card-group">
+                            <div class="card">
+                                <img src="gallery/download (3).jpeg" class="card-img-top" alt="..."
+                                    style="height: 380px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tentang</h5>
+                                    <p class="card-text">Benteng Tolokko adalah benteng peninggalan Spanyol yang berada
+                                        di Kelurahan
+                                        Sangaji, Kecamatan Ternate Utara, Kota Ternate, Maluku Utara, Indonesia. Benteng
+                                        Tolukko
+                                        dibangun pada tahun 1522. Wikipedia
+                                        Alamat: R97Q+G7M, Sangaji Utara, Kec. Kota Ternate Utara, Kota Ternate, Maluku
+                                        Utara
+                                        Mulai dibangun: 1522
+                                        Provinsi: Maluku Utara
+                                        Jam:
+                                        Tutup ⋅ Buka pukul 08.00
+                                        Kota: Ternate</p>
+
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <img src="gallery/download (4).jpeg" class="card-img-top" alt="..."
+                                    style="height: 380px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mengapa Benteng Tolukko dibangun?</h5>
+                                    <p class="card-text">Benteng Tolukko dibangun pada tahun 1522. Benteng ini dibangun
+                                        Portugis
+                                        untuk mencoba mengusir Belanda dari pulau Benteng ini diambil alih oleh Belanda
+                                        pada tahun
+                                        1612 </p>
+
+
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <img src="gallery/download (5).jpeg" class="card-img-top" alt="..."
+                                    style="height: 380px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Benteng Tolukko peninggalan bangsa apa?</h5>
+                                    <p class="card-text">Benteng Tolukko merupakan peninggalan bangsa Spanyol yang
+                                        berada di
+                                        kelurahan Sangaji kecamatan Ternate Utara benteng ini dibangunpada tahun 1522
+                                        oleh anglima
+                                        Spanyol yang bernama Francisco de Ayala.</p>
+                                </div>
+                            </div><br>
+            </section><br>
+
+
+            <!-- Contact Section -->
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2>Hubungi Kami</h2>
+                        <p class="lead">Silakan hubungi kami untuk informasi lebih lanjut</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" placeholder="Nama Lengkap">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="tel" class="form-control" placeholder="Nomor Telepon">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="5" placeholder="Pesan"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ps-md-5">
+                                <h4>Informasi Kontak</h4>
+                                <p><i class="fas fa-map-marker-alt me-2"></i> Jl.Trikora, kaimana, Papua Barat
+                                </p>
+                                <p><i class="fas fa-phone me-2"></i> +62 123 456 789</p>
+                                <p><i class="fas fa-envelope me-2"></i> sukmafrdahryni@gmail.com</p>
+                                <h4 class="mt-4">Jam Operasional</h4>
+                                <p>Senin - Jumat: 09:00 - 17:00</p>
+                                <p>Sabtu: 09:00 - 14:00</p>
+                                <p>Minggu: Tutup</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h5>Tentang Kami</h5>
+                            <p>silahkan di hubungi dan follow medsos di bawa ini untuk mengetahui tentang kami</p>
+                            <div class="social-icons">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Link Penting</h5>
+                            <ul class="footer-links">
+                                <li><a href="home.html">home</a></li>
+                                <li><a href="profil.html">profil</a></li>
+                                <li><a href="daftar.html">daftar</a></li>
+                                <li><a href="login.html">masuk</a></li>
+                                <li><a href="contact.html">Kontak</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Newsletter</h5>
+                            <p>Berlangganan newsletter kami untuk mendapatkan update terbaru.</p>
+                            <form class="mt-3">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="Email Anda">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="mb-0">&copy; 2024 Nama Website. All rights reserved.</p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <p class="mb-0">Designed by <a href="#" style="color: #0d6efd;">Sukma Firda Haryani</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+
+            <!-- Smooth Scroll -->
+            <script> document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(this.getAttribute('href'));
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });</script>
+
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+            <!-- html di taruh sini -->
+
+
+</html>
